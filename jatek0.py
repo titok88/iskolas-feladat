@@ -19,7 +19,7 @@ def run():
     # curses inicializálása
     screen = curses.initscr()
     screen.keypad(True)  # Így a curses által felismerhető kódokat ad vissza a billentyűzet,
-    # nem ESC szekvenciákat (például kurzormozgató billentyűk esetében)
+                         # nem ESC szekvenciákat (például kurzormozgató billentyűk esetében)
     screen.nodelay(True)
     curses.noecho()
     curses.cbreak(True)
@@ -52,21 +52,15 @@ def run():
         if pressed_key == curses.KEY_DOWN:
             direction_x = 0
             direction_y = 1
-            screen.addstr(MAX_Y + 3, MIN_X, "DOWN ")
         elif pressed_key == curses.KEY_UP:
             direction_x = 0
             direction_y = -1
-            screen.addstr(MAX_Y + 3, MIN_X, "UP   ")
         elif pressed_key == curses.KEY_LEFT:
             direction_x = -1
             direction_y = 0
-            screen.addstr(MAX_Y + 3, MIN_X, "LEFT ")
         elif pressed_key == curses.KEY_RIGHT:
             direction_x = 1
             direction_y = 0
-            screen.addstr(MAX_Y + 3, MIN_X, "RIGHT")
-        else:
-            screen.addstr(MAX_Y + 3, MIN_X, "?????")
         sleep(0.1)
 
     # Terminál visszaállítása a használatbavétel előtti állapotba
